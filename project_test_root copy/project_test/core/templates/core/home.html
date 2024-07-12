@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{%block title%} 
+    Home
+{%endblock%}    
+
+{%block content%}
+    <h1>
+    Home page
+    </h1>
+
+    <p>
+    <a href="/create/">Create new flashcard collection</a>
+    </p>    
+
+    <p>
+    Collection catalogue:
+        {% for collection in all_collections %}
+            <p> <a href="/{{collection.name }}">{{ collection.name }} </a> </p>
+
+        {% endfor %}
+    </p>
+    <br> add a function that does not allow repeat collection names
+{%endblock%}
+
+

@@ -1,0 +1,24 @@
+{%extends "core/base.html"%}
+
+{%block title%}
+
+New Collection
+
+{%endblock%}
+
+{%block content%}
+
+<h1>Flash Card Generator</h1>
+
+
+<form method = "post", action = "/create/">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = "submit", userinput = "save"> Upload</button>
+</form>
+<p>
+
+    <a href="/">Back to home page</a>
+
+</p>    
+{%endblock%}
