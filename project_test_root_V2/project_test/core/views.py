@@ -5,7 +5,7 @@ from .forms import UserInput, CollectionName, StackQuantity
 import json
 import openai
 
-client = openai.OpenAI(api_key="")
+####client = openai.OpenAI(api_key="")
 
 # HOME PAGE #############################################################################################################################################
 
