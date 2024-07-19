@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div id="flashcard-container">
+    <div id="flashcard" data-flashcards='{{ stack_dict|safe }}' data-current-id="1" data-side="front">
+        <h1>{{ name }}</h1>
+        
+       
+        <button id="flashcard-button" type="button" style="font-size: 24px; width: 300px; height: 200px;"></button>
+        <br><br>
+        <button id="prev-flashcard-button" type="button">Previous</button>
+        <button id="next-flashcard-button" type="button">Next</button>
+
+
+        <p><a href="/">Back to home</a></p>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("JavaScript loaded");
+
+        const flashcardDiv = document.getElementById("flashcard");
+        const flashcardButton = document.getElementById("flashcard-button");
+        const prevFlashcardButton = document.getElementById("prev-flashcard-button");
+        const nextFlashcardButton = document.getElementById("next-flashcard-button");
+
+        let flashcards = JSON.parse(flashcardDiv.getAttribute('data-flashcards'));
+        let currentId = flashcardDiv.getAttribute('data-current-id');
+        let side = flashcardDiv.getAttribute('data-side');
+
+        function showFlashcard() {
+    // Display the front or back based on the current 'side' state
+            // Retrieve the current flashcard object
+            let card = flashcards["Flashcard" + currentId];
+
+            // Display the front or back based on the current 'side' state
+            if (side === 'front') {
+                flashcardButton.innerText = card.Front;
+            } else {
+                flashcardButton.innerText = card.Back;
+            }
+            
+            // Update the data-side attribute to reflect the current side
+            flashcardDiv.setAttribute('data-side', side);
+        }
+
+        showFlashcard(); // Display the initial flashcard on page load
+
+        flashcardButton.addEventListener("click", function() {
+            console.log("Button clicked, current side:", side);
+            // Toggle between front and back when clicking the button
+            side = side === 'front' ? 'back' : 'front';
+            showFlashcard();
+        });
+
+        nextFlashcardButton.addEventListener("click", function() {
+            console.log("Next button clicked, currentId:", currentId);
+            currentId = (parseInt(currentId) % Object.keys(flashcards).length) + 1;
+            side = 'front'; // Always show front when cycling through
+            showFlashcard();
+        });
+
+        prevFlashcardButton.addEventListener("click", function() {
+            console.log("Previous button clicked, currentId:", currentId);
+            currentId = (parseInt(currentId) - 2 + Object.keys(flashcards).length) % Object.keys(flashcards).length + 1;
+            side = 'front'; // Always show front when cycling through
+            showFlashcard();
+        });
+
+
+    });
+</script>
+{% endblock %}

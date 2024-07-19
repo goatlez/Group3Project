@@ -1,0 +1,22 @@
+{%extends "core/base.html"%}
+
+{%block title%}
+Flashcard #
+{%endblock%}
+
+{%block content%}
+    <h1>{{collections.name}}</h1>
+    <form method = "post" action = "#">
+        {% csrf_token %}
+        {{form.as_p}}
+        {{quantity.as_p}}
+        <button type = "submit", name = 'input', userinput ="newStack", stackquantity ="StackQuantity"> Upload</button>
+    </form> 
+   
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+        
+
+{%endblock%}
