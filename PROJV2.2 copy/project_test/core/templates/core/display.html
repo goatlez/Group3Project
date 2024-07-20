@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+Upload Information Here
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="form-container">
+    <h1 class="righteous-regular">{{ collections.name }}</h1>
+    <h2 class="righteous-regular">Upload Information Here</h2>
+    <form method="post" action="#">
+        {% csrf_token %}
+        <div class="text-inputs">
+            {{form.as_p}}
+        </div>
+        <div class="quantity-container">
+            {{quantity.as_p}}
+        </div>
+        <button type = "submit" class="upload-button" name = 'input' userinput ="newStack" stackquantity ="StackQuantity"> Upload</button>
+
+    </form>
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,412 @@
+/* Font styles */
+.righteous-regular {
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 300%;
+    text-transform: uppercase;
+}
+
+.dm-sans-normal {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dm-sans-bold {
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 1.5em;
+}
+
+/* Styles for HOME Page ******************************************************************/
+body {
+    background-color: #F2F2F2;
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.home-image {
+    display: block;
+    margin: 0 auto;
+    width: 70%; 
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.collection-item {
+    background-color: #43C466;
+    border: 2px solid #101011;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 80%;
+    height: 25px;
+    margin: 0 auto;
+    position: relative; 
+
+}
+
+.collection-item:nth-child(4n+2) {
+    background-color: #399BE6;
+}
+
+.collection-item:nth-child(4n+3) {
+    background-color: #FBBE28;
+}
+
+.collection-item:nth-child(4n+4) {
+    background-color: #FF5757;
+}
+
+.collection-item:hover{
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.create-button {
+    display: block;
+    text-align: center;
+    font-size: 1.5em; 
+    margin: 20px auto;
+    background-color: #d5fbe0;
+    border: 2px solid #101011;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none; 
+    border-radius: 5px;
+    max-width: 300px; 
+}
+
+.create-button:hover {
+    background-color: #43C466; 
+    
+    
+}
+
+.create-button a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.collection-item a {
+    color: black;
+    text-decoration: underline;
+}
+/*** X button ***/
+.delete-form {
+    position: absolute; 
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    margin: 0;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    font-family: "DM Sans", sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.delete-button:hover {
+    color: #d00707;
+}
+/* Styles for Create Flashcards Page ******************************************************************/
+.create-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px; /* Adjust margin as needed */
+
+}
+
+.left-section {
+    flex: 1;
+    text-align: center;
+}
+
+.fc-generator-image {
+    width: 120%; /* Adjust image size as needed */
+}
+
+.right-section {
+    flex: 1;
+    text-align: center;
+}
+
+.create-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    width: 65%;
+    padding: 10px;
+    border: 2px solid #101011;
+    background-color: #FFFFFF; /* White background */
+    color: #000000; /* Black text */
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+
+
+.upload-button {
+    background-color: #FBBE28; /* Yellow background */
+    color: #000000; /* Black text */
+    border: 2px solid #101011;
+    padding: 10px 20px;
+    text-decoration: underline;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-size: 1em;
+}
+
+.upload-button:hover {
+    background-color: #43C466; 
+}
+
+.home-link {
+    position: fixed;
+    top: 30px; 
+    right: 30px; 
+}
+
+.home-icon {
+    width: 50px; 
+    height: auto; 
+}
+
+
+
+/* Styles for Create Flashcards Page ******************************************************************/
+/* REINE ******************************************************************/
+/* Flashcards */
+
+
+.flashcard-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+/* Studying Image */
+.studying-image {
+    width: 400px;
+    height: auto;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+    width: 80%;
+    max-width: 900px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #F2F2F2; /* Same as body background color */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Ensure positioning for controls */
+}
+
+/* Flashcard */
+.flashcard {
+    width: 600px; /* Adjusted width */
+    height: 400px; /* Adjusted height */
+    padding: 20px; /* Padding inside the flashcard */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F2F2; /* Same as body background color */
+    border: 2px solid #101011;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.5em; /* Adjusted font size */
+    overflow: hidden;
+}
+
+/* Flashcard hover effect */
+.flashcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Flashcard Content */
+.flashcard-content {
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+    font-size: 2em; /* Bigger text size */
+    width: 100%; /* Ensure content fits properly */
+    padding: 10px; /* Padding inside content */
+}
+
+/* Flashcard Front and Back */
+.flashcard-front, .flashcard-back {
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Flashcard Controls */
+.flashcard-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between arrows */
+    align-items: center; /* Vertically center arrows */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Flashcard Navigation Buttons */
+.flashcard-nav {
+    font-size: 3em; /* Bigger size for the arrows */
+    color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Remove padding to prevent extra space */
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    pointer-events: auto; /* Enable pointer events */
+}
+
+/* Ensure images inside the buttons are the same size */
+.flashcard-nav img {
+    width: 80px; /* Uniform width for all images */
+    height: 80px; /* Uniform height for all images */
+    object-fit: contain; /* Ensure the image fits within the specified dimensions */
+}
+
+
+.flashcard-nav:hover {
+    color: #000;
+}
+
+
+/* Flashcard Controls */
+.flashcard-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between arrows */
+    align-items: center; /* Vertically center arrows */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Remove any other content */
+.flashcard-nav::before {
+    content: none;
+}
+
+/* Form Page Styles ***************************************************************************************/
+.form-container {
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F2F2F2;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.form-container h1, 
+.form-container h2, 
+.form-container h3 {
+    font-family: 'Righteous', sans-serif;
+}
+.text-inputs {
+    margin-bottom: 15px;
+}
+
+.text-inputs .form-control,
+.text-inputs input,
+.text-inputs textarea,
+.text-inputs select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #101011;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 1em;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+
+    min-height: 100px; 
+}
+.text-inputs input,
+.text-inputs select {
+    height: auto; /* Ensure height adjusts based on content */
+}
+
+
+
+.quantity-container {
+    width: 40%;
+    height: 120px;
+    max-width: 400px; /* Adjusted width */
+    background-color: #d5fbe0;
+    border: 2px solid #101011;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 auto 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.quantity-container input {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #101011;
+    border-radius: 5px;
+    font-size: 1em;
+    height: 25px; /* Reduced height for quantity input */
+}
+

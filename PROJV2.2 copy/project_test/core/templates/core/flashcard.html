@@ -1,0 +1,89 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+{% block content %}
+
+<div class="flashcard-page-container">
+    <div class="flashcard-container">
+        <div class="flashcard" id="flashcard" data-flashcards='{{ stack_dict|safe }}' data-current-id="1" data-side="front">
+            <div class="flashcard-content">
+                <button id="flashcard-button" type="button" class="flashcard-front"></button>
+            </div>
+        </div>
+        <div class="flashcard-controls">
+            <button id="prev-flashcard-button" type="button" class="flashcard-nav">
+                <img src="{% static 'images/leftarrow.png' %}" alt="Previous">
+            </button>
+                        
+            <button id="next-flashcard-button" type="button" class="flashcard-nav">
+                <img src="{% static 'images/rightarrow.png' %}" alt="Next">
+            </button>
+
+        </div>
+
+
+    </div>
+    <img src="{% static 'images/student-studying.png' %}" alt="Student Studying" class="studying-image">
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log("JavaScript loaded");
+
+        const flashcardDiv = document.getElementById("flashcard");
+        const flashcardButton = document.getElementById("flashcard-button");
+        const prevFlashcardButton = document.getElementById("prev-flashcard-button");
+        const nextFlashcardButton = document.getElementById("next-flashcard-button");
+
+        let flashcards = JSON.parse(flashcardDiv.getAttribute('data-flashcards'));
+        let currentId = flashcardDiv.getAttribute('data-current-id') || '1'; // Initialize to '1' if undefined
+        let side = flashcardDiv.getAttribute('data-side') || 'front'; // Initialize to 'front' if undefined
+
+        function showFlashcard() {
+            // Retrieve the current flashcard object
+            let card = flashcards["Flashcard" + currentId];
+
+            // Display the front or back based on the current 'side' state
+            if (side === 'front') {
+                flashcardButton.innerText = card.Front;
+            } else {
+                flashcardButton.innerText = card.Back;
+            }
+            
+            // Update the data-side attribute to reflect the current side
+            flashcardDiv.setAttribute('data-side', side);
+        }
+
+        showFlashcard(); // Display the initial flashcard on page load
+
+        flashcardButton.addEventListener("click", function() {
+            console.log("Button clicked, current side:", side);
+            // Toggle between front and back when clicking the button
+            side = side === 'front' ? 'back' : 'front';
+            showFlashcard();
+        });
+
+        nextFlashcardButton.addEventListener("click", function() {
+            console.log("Next button clicked, currentId:", currentId);
+            currentId = (parseInt(currentId) % Object.keys(flashcards).length) + 1;
+            side = 'front'; // Always show front when cycling through
+            showFlashcard();
+        });
+
+        prevFlashcardButton.addEventListener("click", function() {
+            console.log("Previous button clicked, currentId:", currentId);
+            currentId = (parseInt(currentId) - 2 + Object.keys(flashcards).length) % Object.keys(flashcards).length + 1;
+            side = 'front'; // Always show front when cycling through
+            showFlashcard();
+        });
+    });
+</script>
+
+
+
+<a href="/" class="home-link">
+    <img src="{% static 'images/home.png' %}" alt="Home Icon" class="home-icon">
+</a>
+
+
+{% endblock %}
